@@ -16,7 +16,7 @@ setwd("~/R/# ProJ")
         library(ggtree)
         library(cowplot)
 
-## (the data is currently unavailable for public access.)
+## (The data is currently unavailable for public access. Use upon request.)
 a <- read.csv('Analysis.csv')
 
 # Remove the least certain data & NA.
@@ -28,7 +28,7 @@ str(a)                          # 1136 species.
 
         
 
-############################ 1. DATA PREPARATION ##############################
+################################# 1. DATA PREPARATION ###################################
 
 ## Check Xs.
 
@@ -142,7 +142,7 @@ length(ant_2$phy$tip.label)                   # 879 species.
 
 
 
-################################ 2. ANALYSIS #################################
+##################################### 2. ANALYSIS ######################################
 
 # PGLS models and variance partition.
 
@@ -211,7 +211,7 @@ summary(bp1[[1]])
 
 
 
-############################## 3. VISUALISATION ###############################
+###################################### 3. VISUALISATION #######################################
     
     
 ##### 1) Figure 2. The tree (dichroamtism) and heatmaps (natural+sexual selection) #####
@@ -416,3 +416,4 @@ cowplot::plot_grid(ps, pn, pt, pl, ncol = 2, scale = 0.95)
 
 
 
+ 
