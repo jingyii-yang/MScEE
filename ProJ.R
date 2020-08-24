@@ -311,7 +311,7 @@ gheatmap (tp1,               # << the tree (total Dichromatism).
   
 ### Table S5.
   
-order <- c('TOTAL', 'Visible body parts', 'Head', 'Upper Part', 'Tail', 'Invisible body parts', 'Under Part', 'Wings')
+order <- c('TOTAL', 'Visible body parts', 'Head', 'Upper Part', 'Tail', 'Invisible body parts', 'Underparts', 'Wings')
 bp.R2 <- rbind(bp1[[2]], bp2[[2]], bp2.1[[2]], bp2.2[[2]], 
                bp2.3[[2]], bp3[[2]], bp3.1[[2]], bp3.2[[2]])
   bp.R2$Body_part <- order
