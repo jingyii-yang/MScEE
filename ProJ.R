@@ -302,8 +302,7 @@ gheatmap (tp1,               # << the tree (total Dichromatism).
           d4p, 
           low = 'navy', high = 'gold',
           legend_title = 'Total Dichromatism',
-          offset = 7.2, width = 0.05, colnames = FALSE) #+
-  theme(legend.position = "none")
+          offset = 7.2, width = 0.05, colnames = FALSE) 
  
   
 
