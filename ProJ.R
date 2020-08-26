@@ -222,7 +222,7 @@ ant <- tGBD(a)     # 1136 sp.
       
 ## Tree plot:
     
-# Select the total dichromatism data (need tip names later)
+# Select the total dichromatism data (will need tip names later)
     
 d4p <- data.frame(dich = ant$data$Dichro_total, sp = row.names(ant$data))
 
@@ -233,11 +233,11 @@ cc <- data.frame(colors = cc, dich = 0:10)
 d4p <- merge(cc, d4p, by = 'dich')
 row.names(d4p) <- d4p$sp
 
-# Assemble the tree and dichromatism data (shown as branch colours).
+# Assemble the tree and dichromatism data (now as branch colours).
 d4pp <- as.matrix(d4p)[,2]
 tp <- phylo4d(as(ant$phy,'phylo4'), d4pp) 
 
-# Add node colours to the tree.
+# Add node colours to the tree (dt is naming convention, don't change).
 nodeData(tp) <- data.frame(dt = rep('grey42', times = nNodes(tp)), row.names = nodeId(tp, 'internal'))
 
 
