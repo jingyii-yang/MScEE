@@ -94,13 +94,22 @@ a2 <- subset(a, a$Incubation.certainty %in% c(1, 2) &         # 879 species.
 a2$ss_n <- as.numeric( as.factor(a2$ss) )
 a2$terr_n <- as.numeric( as.factor(a2$terr))
 
-# VIF:
+
+# Making dataset for VIF tests:
+
+t <- ape::read.tree('T400F_AOS_sppnames.tre')
+a2$AOS.Howard.Moore.Name <- gsub(' ', '_', a2$AOS.Howard.Moore.Name) 
+a2t = caper::comparative.data(data = a2, phy = t,           
+                 names.col = 'AOS.Howard.Moore.Name',
+                 vcv = TRUE, warn.dropped = TRUE)
+
+# VIF (Note: all variables tested here need to be the same set of Xs to be used in the final PGLS):
 
 VIF <- function(i){
     v <- c('Incubation.roles', 'Nest.invisibility', 'ss_n', 'terr_n', 'lat')
     vi <- which(colnames(a2) %in% v)
     fml <- formula(paste(v[i], '~ . -', v[i]))
-    r2 <- summary(lm(fml, data = a2[, vi]))$adj.r.squared
+    r2 <- summary(phylolm(fml, data = a2t$data, phy = a2t$phy, model = 'lambda'))$adj.r.squared
     1 / (1 - r2)
 }
 
